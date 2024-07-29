@@ -11,5 +11,5 @@ import com.innovation.OPDPrj.model.Admin;
 @Repository
 @Qualifier("admRepo")
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-
+	Admin findByEmailAndPassword(String email,String password);
 }
