@@ -15,11 +15,7 @@ public class AdminController {
 	@Autowired
 	AdminServices as;
 	
-	@PostMapping("/Admin")
-	public Admin login(@RequestBody Admin a)
-	{
-		return as.login(a);
-	}
+	
 	
 	
 
