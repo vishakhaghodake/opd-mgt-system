@@ -11,5 +11,5 @@ import com.innovation.OPDPrj.model.Patient;
 @Repository
 @Qualifier("patientRepo")
 public interface PatientRepository extends JpaRepository<Patient, Long>{
-
+Patient findByEmailAndPassword(String email,String password);
 }

@@ -12,7 +12,7 @@ import com.innovation.OPDPrj.repository.PatientRepository;
 @Service
 public class PatientServicesImpl implements PatientService {
 @Autowired
-@Qualifier("patientRepo")
+@Qualifier ("patientRepo")
 PatientRepository patientRepo;
 	@Override
 	public Patient insert(Patient p) {
@@ -23,11 +23,12 @@ PatientRepository patientRepo;
 	@Override
 	public void delete(long pid) {
 		// TODO Auto-generated method stub
-		patientRepo.deleteById(pid);
+		patientRepo.deleteById(pid);;;
 	}
 
 	@Override
 	public Patient update(long pid, Patient p) {
+		// TODO Auto-generated method stub
 		Optional<Patient> opt=patientRepo.findById(pid);
 		if(opt.isPresent())
 		{
@@ -49,9 +50,9 @@ PatientRepository patientRepo;
 		Optional<Patient> opt=patientRepo.findById(pid);
 		if(opt.isPresent())
 		{
-			Patient pp= opt.get();
-			return pp;
-					
+			Patient pp=opt.get();
+			
+		return pp;
 		}
 		return null;
 	}
@@ -60,6 +61,12 @@ PatientRepository patientRepo;
 	public List<Patient> getAll() {
 		// TODO Auto-generated method stub
 		return patientRepo.findAll();
+	}
+
+	@Override
+	public Patient login(String em, String ps) {
+		// TODO Auto-generated method stub
+		return patientRepo.findByEmailAndPassword(em, ps);
 	}
 
 }

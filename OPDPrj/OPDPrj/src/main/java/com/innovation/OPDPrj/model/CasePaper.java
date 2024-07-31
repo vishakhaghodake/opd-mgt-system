@@ -10,13 +10,14 @@ public class CasePaper {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 private long cid;
-private long pid;
+private long pid,aid;
+
 private String dt,complain,bp,sugar,spo;
 public CasePaper() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public CasePaper(long pid, String dt, String complain, String bp, String sugar, String spo) {
+public CasePaper(long pid, String dt, String complain, String bp, String sugar, String spo ,long aid) {
 	super();
 	this.pid = pid;
 	this.dt = dt;
@@ -24,6 +25,14 @@ public CasePaper(long pid, String dt, String complain, String bp, String sugar, 
 	this.bp = bp;
 	this.sugar = sugar;
 	this.spo = spo;
+	this.aid=aid;
+}
+
+public long getAid() {
+	return aid;
+}
+public void setAid(long aid) {
+	this.aid = aid;
 }
 public long getCid() {
 	return cid;

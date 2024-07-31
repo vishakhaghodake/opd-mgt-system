@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.innovation.OPDPrj.model.Appointment;
 
 
-
 @Repository
 @Qualifier("apRepo")
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {

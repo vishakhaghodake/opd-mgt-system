@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.innovation.OPDPrj.model.Prescription;
 import com.innovation.OPDPrj.repository.PrescriptionRepository;
 @Service
-public class PrescriptionServicesImpl implements PrescriptionServices {
+public class PrescriptionServicesImpl implements PrescriptionServices{
 @Autowired
 @Qualifier("presRepo")
 PrescriptionRepository presRepo;
@@ -19,6 +19,7 @@ PrescriptionRepository presRepo;
 		// TODO Auto-generated method stub
 		return presRepo.save(ps);
 	}
+	
 
 	@Override
 	public Prescription update(long pid, Prescription ps) {
@@ -32,7 +33,6 @@ PrescriptionRepository presRepo;
 		return presRepo.save(pr);
 		}
 		return null;
-		
 	}
 
 	@Override
@@ -41,16 +41,23 @@ PrescriptionRepository presRepo;
 		if(opt.isPresent())
 		{
 			Prescription pr=opt.get();
+		    
 		return pr;
 		}
 		return null;
-		
 	}
 
 	@Override
 	public List<Prescription> getAll() {
 		// TODO Auto-generated method stub
 		return presRepo.findAll();
+	}
+
+
+	@Override
+	public List<Prescription> getAllByApp(long aid) {
+		// TODO Auto-generated method stub
+		return presRepo.findAllByAid(aid);
 	}
 
 }

@@ -10,15 +10,15 @@ public class Appointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long aid;
-	private long cid;
+	private long pid;
 	private String dt,tm,status;
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Appointment(long cid, String dt, String tm, String status) {
+	public Appointment(long pid, String dt, String tm, String status) {
 		super();
-		this.cid = cid;
+		this.pid = pid;
 		this.dt = dt;
 		this.tm = tm;
 		this.status = status;
@@ -29,11 +29,11 @@ public class Appointment {
 	public void setAid(long aid) {
 		this.aid = aid;
 	}
-	public long getCid() {
-		return cid;
+	public long getPid() {
+		return pid;
 	}
-	public void setCid(long cid) {
-		this.cid = cid;
+	public void setPid(long pid) {
+		this.pid = pid;
 	}
 	public String getDt() {
 		return dt;

@@ -3,6 +3,7 @@ package com.innovation.OPDPrj.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import com.innovation.OPDPrj.services.PatientService;
 
 @RestController
 @RequestMapping("/opd/")
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class PatientController {
 	@Autowired
 	PatientService ps;
@@ -45,5 +48,10 @@ public class PatientController {
 	public Patient search(@PathVariable("id")long id)
 	{
 		return ps.search(id);
+	}
+	@GetMapping("/patient/{email}/{password}")
+	public Patient login(@PathVariable("email")String email,@PathVariable("password")String password)
+	{
+		return ps.login(email, password);
 	}
 }

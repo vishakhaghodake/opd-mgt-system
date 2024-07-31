@@ -1,7 +1,6 @@
 package com.innovation.OPDPrj.services;
 
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,10 @@ import com.innovation.OPDPrj.model.Appointment;
 import com.innovation.OPDPrj.repository.AppointmentRepository;
 @Service
 public class AppointmentServicesImpl implements AppointmentServices {
+@Autowired
+@Qualifier("apRepo")
+AppointmentRepository apRepo;
 
-	@Autowired
-	@Qualifier("apRepo")
-	AppointmentRepository apRepo;
-	
 	@Override
 	public Appointment insert(Appointment ap) {
 		// TODO Auto-generated method stub
@@ -26,16 +24,16 @@ public class AppointmentServicesImpl implements AppointmentServices {
 	@Override
 	public void delete(long aid) {
 		apRepo.deleteById(aid);
-		
 	}
 
 	@Override
 	public Appointment update(long aid, Appointment ap) {
+		// TODO Auto-generated method stub
 		Optional<Appointment> opt=apRepo.findById(aid);
 		if(opt.isPresent())
 		{
 			Appointment app=opt.get();
-			app.setCid(ap.getCid());
+			app.setPid(ap.getPid());
 			app.setDt(ap.getDt());
 			app.setStatus(ap.getStatus());
 			app.setTm(ap.getTm());
@@ -58,9 +56,8 @@ public class AppointmentServicesImpl implements AppointmentServices {
 
 	@Override
 	public List<Appointment> getAll() {
-		
+		// TODO Auto-generated method stub
 		return apRepo.findAll();
 	}
-	
-	
-	}
+
+}

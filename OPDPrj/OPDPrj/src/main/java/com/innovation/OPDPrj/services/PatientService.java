@@ -11,5 +11,6 @@ import com.innovation.OPDPrj.model.Patient;
 		Patient update(long pid,Patient p);
 		Patient search(long pid);
 		List<Patient> getAll();
-		}
+		Patient login(String em,String ps);
+}
 
